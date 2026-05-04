@@ -1,0 +1,99 @@
+\section{Logical coherence and decision theory}
+
+\red{Connect the choice of $\phi$ to decision theory.}
+
+Does there exist a utility function such that,
+if $\phi^* = \arg \max_{\phi} \E[U(\phi,\theta)]$,
+then $\phi^*$ is $\aleph_0$-coherent?
+
+\begin{definition}
+ $P_{\phi}(x) \subset \Theta$ and
+ $N_{\phi}(x) \subset \Theta$ are such that
+ \label{def:region_p_n}
+ \begin{align*}
+  P_{\phi}(x) 
+  &= \left\{\theta \in \Theta:
+  \forall H \in \sigma(\Theta),
+  \theta \in H \rightarrow 
+  \phi(H|x) \geq \half\right\}, \text{ and } \\
+  N_{\phi}(x)
+  &= \left\{\theta \in \Theta:
+  \forall H \in \sigma(\Theta),
+  \theta \notin H \rightarrow 
+  \phi(H|x) \leq \half\right\}.
+ \end{align*}
+\end{definition}
+
+$P_{\phi}$ and $N_{\phi}$ can be
+interpreted as two possible definitions of
+sets of values of $\theta$ that are
+highly plausible according to $\phi$.
+If $\theta_0 \in P_{\phi}$, then
+$\theta_0 \in H$ is a sufficient condition
+for $H$ not to be taken as false.
+That is, $\theta_0$ is so plausible that
+its presence in $H$ is sufficient
+to avoid $H$ being taken as false.
+Similarly, if $\theta_0 \in N_{\phi}$, then
+$\theta_0 \in H$ is a necessary condition for
+$H$ to be taken as true.
+That is, $\theta_0$ is so plausible that,
+if $\theta \notin H$, then
+one does not take $H$ to be true.
+
+\begin{definition}
+ \label{def:u_gfbst}
+  Let $\sP(\sigma(\Theta))$ be
+  the powerset of $\sigma(\Theta)$ and
+  $\rho: \mathcal{P}(\sigma(\Theta))
+ \rightarrow \leftindex^*{\Re}$ be
+ a nonstandard probability over
+ collections of hypotheses such that,
+ if $H$ is a proper subset of $H'$, then
+ $\rho(H) < \rho(H')$.
+ The existence of $\mu$ follows from
+ \citet{Schervish2022}. Also, let
+ $\rho$ be a measure over $\sigma(\Theta)$.
+ \begin{align*}
+  U(\phi, \theta)
+  &:= \I(\theta \in P_{\phi}(X))
+ + \I(\theta \in N_{\phi}(X))
+  -\lambda \left(\mu(P_{\phi}(X))
+  +\mu(N_{\phi}(X)) \right) 
+  -\odot \cdot \rho(A_{\phi}(X)), \\
+  & \text{where } A_{\phi}(x) = 
+  \left\{H \in \sigma(\Theta): \phi(H|x) = \half 
+  \right\} \text{and $\odot$ is an infinitesimal}.
+ \end{align*}
+\end{definition}
+
+\Cref{def:u_gfbst} admits 
+an intuitive interpretation.
+Recall that $P_{\phi}$ and $N_{\phi}$ are
+sets of plausible values for $\theta$.
+The first two summands,
+$\I(\theta \in P_{\phi}(X)) + 
+\I(\theta \in N_{\phi}(X))$, reward
+when $\theta \in P_{\phi}$ and
+when $\theta \in P_{\phi}$. Also,
+$-\lambda \left(\mu(P_{\phi}(X))
+  +\mu(N_{\phi}(X)) \right)$ punishes
+when $P_{\phi}$ and $N_{\phi}$ are large sets.
+Finally, $-\odot \cdot \rho(U_{\phi})$ puts 
+a small penalty for each hypothesis
+in which $\phi$ remains undecided.
+
+\begin{theorem}
+ \label{thm:min_u}
+ $\phi^* = \arg \max_{\phi} \E[U(\phi,\theta)]$
+ if and only if
+ $\phi^*$ is a version of $\phi_0$, where
+ $\phi_0$ is based on the region, $R_x$,
+ and $R_x$ is
+ the highest density set:
+ \begin{align*}
+  \left\{\theta \in \Theta: 
+  \frac{d\P(\theta|x)}{d \mu} 
+  > (1+\lambda)^{-1}\right\}.
+ \end{align*}
+\end{theorem}

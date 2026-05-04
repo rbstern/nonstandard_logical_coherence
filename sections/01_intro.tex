@@ -1,0 +1,173 @@
+\section{Introduction}
+
+After observing data, $x$,
+a Bayesian agent updates his uncertainty about
+an unknown quantity, $\theta \in \Theta$, from
+a prior probability, $\P(\theta)$, to
+$\P(\theta|x)$. However,
+given human limitations \citep{Tversky1974},
+it can be challenging to
+interpret and communicate
+the full entailments of $\P(\theta|x)$.
+These challenges can be addressed by
+a \textit{probability summary}, that is,
+a simplification of $\P(\theta|x)$ that
+categorizes propositions about $\theta$ into
+alethic modalities. \red{Better describe what is meant by a summary and how it can be used. Contrast to beliefs.}
+
+Formally, a \probsumm\ is a function,
+$\phi(H|x)$, which assigns
+a modality to each hypothesis, $H$,
+after data $x$ is observed.
+Here, the hypothesis, $H$, is 
+a subset of $\Theta$ and stands for
+the proposition that $\theta \in H$.
+When $\phi$ assumes values in $\{0,1\}$,
+$\phi(H|x) = 1$ and $\phi(H|x) = 0$ 
+are interpreted, respectively, as
+$H$ to be taken as true and as false.
+For instance, the 
+\textit{Lockean thesis} \citep{Foley2009}
+states that a proposition $H$ is 
+taken as true if and only if 
+its probability is higher than 
+a threshold, $r$, that is,
+$\phi(H|x) = \I(\P(\theta \in H|x) > r)$.
+In particular, when $r = 0.5$, a proposition 
+taken as true when
+it is more likely to be true than false.
+Such a \summ \ is useful,
+for instance, in most USA civil legal cases.
+In such a setting, one satisfies
+the burden of proof regarding a claim by
+preponderance of evidence, that is, by
+showing that it is
+more likely than not \citep{Carlson2023}.
+When such a standard is met,
+US Law is enacted as if the claim were true.
+
+More generally, 
+a thernary \probsumm, $\phi$,
+assumes values in $\{0, \half, 1\}$.
+In this context, 
+$\phi(H|x) = 1$ and $\phi(H|x) = 0$ represent,
+respectively, taking $H$ as true and as false.
+Also, $\phi(H|x) = \half$ represents
+an absence of conviction on whether 
+to take $H$ as true or false.
+More formally:
+
+\begin{definition}
+ Let $\sigma(\Theta)$ be
+ a $\sigma$-field of 
+ measurable subsets of $\Theta$.
+ A thernary \probsumm\
+ is a function
+ $\phi(H|x): \sigma(\Theta) 
+ \rightarrow \{0, \half, 1\}$.
+ When there is no ambiguity,
+ $\phi$ is simply said to be
+ a \summ.
+\end{definition}
+
+\begin{definition}
+ $\phi(H|x)$ is a 
+ \stdsumm\ if,
+ for every $H \in \sigma(\Theta)$ 
+ and $x \in \sX$,
+ $\phi(H|x) \in \{0,1\}$.
+ When there is no ambiguity,
+ $\phi$ is simply said to be
+ a \stdsumm.
+\end{definition}
+
+Some additional properties are usually 
+necessary for $\phi$ to be 
+an interpretable \summ.
+For instance, let $H$ be the hypothesis that 
+it will rain tomorrow.
+If both $\phi(H|x) = 1$ and $\phi(H^c|x) = 1$, then
+one takes as true both
+that it will rain and 
+that it will not rain tomorrow.
+Such an apparent logical contradiction is
+hard to interpret.
+One way of avoiding these
+contradictions is
+to require logical conditions on
+the \summ.
+
+In order to obtain such conditions,
+one can look at the related literature of
+agnostic hypothesis tests.
+An agnostic hypothesis test is a function:
+$\psi: \sigma(\Theta) 
+\rightarrow \left\{0,\half,1\right\}$.
+In this context, 
+$\psi(H|x) = 1$ and $\psi(H|x) = 0$ represent,
+respectively, that
+$H$ is rejected and that it is accepted.
+Also, $\psi(H|x) = \half$ represents that
+$H$ remains undecided.
+In this sense, $1-\psi$ is
+a \summ, that is,
+there exist a one-to-one relationship
+between these functions.
+By adapting the conditions of logical coherence
+for agnostic tests \citep{Esteves2016},
+one obtains a definition of 
+\textit{logical coherence}
+for \summs, as described below:
+
+\begin{definition}[Proper \summ]
+ \label{def:proper}
+ $\phi$ is a proper \summ \
+ if $\phi(\Theta|x) = 1$,
+ for every $x \in \sX$.
+\end{definition}
+
+\begin{definition}[Logical coherence]
+ \label{def:coherence}
+ A \summ, $\phi$, is 
+ $\kappa$-coherent if, 
+ for every $x \in \sX$:
+ \begin{enumerate}
+  \item $\phi$ is proper,
+  \item $\phi(H|x) = 1 - \phi(H^c|x)$,
+  for every $H \in \sigma(\Theta)$ (invertibility),
+  \item $\phi(H|x) \leq \phi(H'|x)$,
+  for every $H, H' \in \sigma(\Theta)$
+  such that $H \subset H'$ (monotonicity),
+  \item If $\phi(H|x) = 1$ for every $H \in \GG$
+  and $|\GG| < \kappa$, then $\phi(\cap\GG|x) = 1$
+  ($\kappa$-consonance).
+ \end{enumerate}
+ Let $|\Theta|^{+}$ be 
+ the successor cardinal of $|\Theta|$.
+ If $\phi$ is $|\Theta|^{+}$-coherent,
+ then it is said to be
+ \textit{completely-coherent}.
+\end{definition}
+\Cref{def:coherence} is also similar to 
+property (P1) for beliefs in \citet{Leitgeb2013}.
+However, since the latter studies solely
+the case in which $\Theta$ is finite,
+only $\aleph_0$-consonance is discussed.
+
+This paper studies whether logically coherent are coherent representations of uncertainty. 
+\Cref{sec:coh_prob} shows that a \summ \ is
+logically coherent if and only if
+it admits a probability representation, 
+that is, there exists a probability function that
+agrees qualitatively with the \summ.
+Specifically, \stdsumms \ are 
+logically coherent if and only if
+they are extreme-valued probabilities.
+
+\red{From another perspective, one might also wish for $\phi$ to be an optimal decision. That is,
+after choosing a loss function $L(\phi, \theta)$,
+one might wish to choose
+$\phi = \arg\min_{\phi^*} \E[L(\phi^*,\theta)]$.
+This paper studies the relation
+between logical coherence and optimal decisions
+in the context of hypothesis tests. This perspective is studied in Section 3.}

@@ -1,0 +1,702 @@
+\section{Proofs}
+
+\subsection{Auxiliary results}
+
+\begin{definition}
+ \label{def:filter}
+ $\FF \subset \sigma(\Theta)$ is a 
+ $\kappa$-complete filter over $\sigma(\Theta)$ if
+ \begin{enumerate}
+  \item $\Theta \in \FF$ and $\emptyset \notin \FF$.
+	\item If $F \in \FF$ and $F \subset F' \in \sigma(\Theta)$, 
+	      then $F' \in \FF$.
+	\item If $\GG \subset \FF$, $|\GG| < \kappa$ and 
+	      $\cap \GG \in \sigma(\Theta)$,
+	      then $\cap \GG \in \FF$.
+ \end{enumerate}
+ In particular, if $\sigma(\Theta)=\PP(\Theta)$ and 
+ $\kappa=\aleph_0$, then 
+ $\FF$ is a filter over $\Theta$ \citep{Jech2013}.
+\end{definition}
+
+\begin{definition}
+ $\AA(\phix) = \{H \in \sigma(\Theta): \phi(H|x) = 1\}$,
+ $\RR(\phix) = \{H \in \sigma(\Theta): \phi(H|x) = 0\}$, and
+ $\UU(\phix) = \left\{H \in \sigma(\Theta): \phi(H|x) = \half\right\}$.
+\end{definition}
+
+\begin{lemma}
+ \label{thm:coherence-filter}
+ A \summ, $\phi$, is 
+ $\kappa$-coherent if and only if,
+ for every $x \in \sX$,
+ \begin{enumerate}
+  \item $\AA(\phix)$ is a $\kappa$-filter 
+  over $\sigma(\Theta)$, and
+  \item $\RR(\phix) = \{H^{c}: H \in \AA(\phix)\}$.
+ \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+ ($\Longrightarrow$) Let $\phi$ be 
+ a $\kappa$-coherent \summ.
+ First, we prove that $\AA(\phix)$ is 
+ a $\kappa$-complete filter over $\sigma(\Theta)$.
+ Since $\phi$ is $\kappa$-coherent, 
+ \cref{def:coherence}.1 implies that
+ $\Theta \in \AA(\phix)$.
+ Also, it follows from 
+ \cref{def:coherence}.(1 and 2) that
+ $\emptyset \in \RR(\phix)$.
+ Since, $\AA(\phix) \cap \RR(\phix) = \emptyset$,
+ $\emptyset \notin \AA(\phix)$.
+ Next, if $H \in \AA(\phix)$ and
+ $H \subset H' \in \sigma(\Theta)$, then 
+ \cref{def:coherence}.3 implies that
+ $H' \in \AA(\phix)$.
+ Finally, if $\GG \subset \AA(\phix)$, 
+ $|\GG| < \kappa$ and
+ $\cap \GG \in \sigma(\Theta)$, then
+ it follows from \cref{def:coherence}.4 
+ that $\cap \GG \in \AA(\phix)$.
+ Hence, $\AA(\phix)$ is 
+ a $\kappa$-complete filter over $\sigma(\Theta)$.
+ It follows from \cref{def:coherence}.2 that
+ $\RR(\phix) = \{H^{c}: H \in \AA(\phix)\}$.
+
+ ($\Longleftarrow$) Let $\phi$ be a test such that, for every $x \in \sX$,
+ $\AA(\phix)$ is a $\kappa$-complete filter over $\sigma(\Theta)$ and 
+ also that $\RR(\phix) = \{H^{c}: H \in \AA(\phix)\}$.
+ Take an arbitrary $x \in \sX$.
+ Since $\AA(\phix)$ is a $\kappa$-complete filter, 
+ $\Theta \in \AA(\phix)$.
+ Since $\RR(\phix) = \{H^{c}: H \in \AA(\phix)\}$,
+ conclude that $\emptyset = \Theta^c \in \RR(\phix)$.
+ Therefore, $\phi$ satisfies \cref{def:coherence}.1.
+ Also, since $\RR(\phix) = \{H^{c}: H \in \AA(\phix)\}$,
+ $\phi$ satisfies \cref{def:coherence}.2.
+ Next, let $H \subset H' \in \sigma(\Theta)$.
+ To prove that $\phi$ satisfies \cref{def:coherence}.3,
+ it is sufficient to show that
+ $\phi(H|x) = 1 \rightarrow \phi(H'|x) = 1$ and
+ $\phi(H'|x) = 0 \rightarrow \phi(H|x) = 0$.
+ First, if $H \in \AA(\phix)$, then since 
+ $\AA(\phix)$ is a $\kappa$-filter over $\sigma(\Theta)$,
+ $H' \in \AA(\phix)$, that is, 
+ $\phi(H|x) = 1 \rightarrow \phi(H'|x) = 1$.
+ Second, if $H' \in \RR(\phix)$, then
+ $H'^c \in \AA(\phix)$. Hence, since
+ $\AA(\phix)$ is a $\kappa$-filter over $\sigma(\Theta)$,
+ $H^c \in \AA(\phix)$ and $H \in \RR(\phix)$.
+ That is, $\phi(H'|x) = 0 \rightarrow \phi(H|x) = 0$.
+ From both cases, conclude that 
+ $\phi$ satisfies \cref{def:coherence}.3.
+ Finally, let $\GG \subset \AA(\phix)$ be such that 
+ $|\GG| < \kappa$ and
+ $\cap \GG \in \sigma(\Theta)$.
+ Since $\AA(\phix)$ is a $\kappa$-complete filter,
+ conclude that $\cap \GG \in \AA(\phix)$.
+ Hence, $\phi$ satisfies \cref{def:coherence}.4.
+ Since $\phi$ satisfies all of the conditions in
+ \cref{def:coherence}, $\phi$ is $\kappa$-coherent.
+\end{proof}
+
+\begin{definition}
+ \label{def:ultrafilter}
+ $\FF \subset \sigma(\Theta)$ is a $\kappa$-complete ultrafilter over $\sigma(\Theta)$ if
+ \begin{enumerate}
+  \item $\FF$ is a a $\kappa$-complete filter over $\sigma(\Theta)$.
+	\item For every $A \in \sigma(\Theta)$, 
+	either $A \in \FF$ or $A^c \in \FF$.
+ \end{enumerate}
+ Note that, if $\sigma(\Theta)=\PP(\Theta)$,
+ the power set of $\Theta$, and $\kappa=\aleph_0$,
+ then $\FF$ is an ultrafilter over $\Theta$.
+\end{definition}
+
+\subsection{Related to \cref{sec:coherent_standard}}
+
+\begin{lemma}
+ \label{cor:standard-ultrafilter}
+  A \stdsumm, $\phi$, is
+  $\kappa$-coherent if and only if,
+  for every $x \in \sX$,
+  $\AA(\phix)$ is
+  a $\kappa$-complete ultrafilter over $\sigma(\Theta)$.
+\end{lemma}
+
+\begin{proof}
+ Assume that $\phi$ is $\kappa$-coherent.
+ It follows from \cref{thm:coherence-filter} that
+ $\AA(\phix)$ is a $\kappa$-filter over $\sigma(\Theta)$ and
+ $\RR(\phix) = \{H^c: H \in \AA(\phix)\}$.
+ Since $\phi$ is a \stdsumm,
+ $\AA(\phix)$ and $\RR(\phix)$ partition $\sigma(\Theta)$.
+ Hence, $\AA(\phix)$ is a 
+ $\kappa$-ultrafilter over $\sigma(\Theta)$.
+ Next, assume that 
+ $\AA(\phix)$ is a $\kappa$-ultrafilter over $\sigma(\Theta)$.
+ In particular, $\AA(\phix)$ is a $\kappa$-filter over $\sigma(\Theta)$.
+ Also, since $\phi$ is standard,
+ $\RR(\phix) = \{H^c: H \in \AA(\phix)\}$.
+ It follows from \cref{thm:coherence-filter} that
+ $\phi$ is $\kappa$-coherent.
+\end{proof}
+
+\begin{proof}[Proof of \cref{cor:std_prob} and \cref{thm:coherent_std_1}]
+ Follows directly from \cref{cor:standard-ultrafilter}.
+\end{proof}
+
+\subsection{Related to \cref{sec:coherent_agnostic}}
+
+%\begin{lemma}
+% \label{lemma:prob_1_filter}
+% Let $\phi$ be \summ.
+% Define
+% \begin{align*}
+%  \mathcal{F} = \{H \in \sigma(\Theta): 
+%  \exists n \in \mathbb{N} \text{ and } 
+%  H_1, H_2,\ldots, H_n \in \AA(\phix) 
+%  \text{ s.t. } \cap_{i=1}^n H_i \subseteq H \}.
+% \end{align*}
+% If $\P$ is a probability such that
+% $\P(H|x) = 1$ for every $H \in \AA(\phix)$, then
+% $\P(H|x) = 1$ for every $H \in \mathcal{F}$.
+%\end{lemma}
+
+%\begin{proof}
+% Let $H \in \mathcal{F}$.
+% By construction, there exist 
+% $H_1,\ldots,H_n \in \AA(\phix)$ such that
+% $\cap_{i=1}^n H_i \subseteq H$.
+% Let $\P$ be a probability such that
+% $\P(H|x) = 1$ for every $H \in \AA(\phix)$.
+% Since $\P$ is a probability,
+% $\P(\cap_{i=1}^n H_i|x) = 1$. Hence,
+% since $\cap_{i=1}^n H_i \subseteq H$, $\P(H|x) = 1$.
+%\end{proof}
+
+%\begin{lemma}
+% \label{lemma:prob_to_coherence}
+% If a \summ, $\phi$, is 
+% not $\aleph_0$-coherent, then
+% there exists no probability, $\P$, such that
+% $\P(H|x) = \phi(H|x)$, for every $H$ such that
+% $\phi(H|x) \in \{0,1\}$.
+%\end{lemma}
+
+%\begin{proof} 
+% Assume $\phi$ is not
+% $\aleph_0$-coherent. 
+% It follows from \cref{thm:coherence-filter} that
+% there exists $x \in \sX$ such that
+% either $\AA(\phix)$ is not a filter 
+% over $\sigma(\Theta)$ or
+% $\RR(\phix) \neq \{H^c: H \in \AA(\phix)\}$.
+ 
+% If $\AA(\phix)$ is not a filter, then
+% let $\mathcal{F}$ be such as in %\cref{lemma:prob_1_filter}.
+% Since $\mathcal{F}$ is a filter,
+% there exists $H_0 \in \mathcal{F}$ such that
+% $H_0 \notin \AA(\phix)$. Using 
+% \cref{lemma:prob_1_filter} obtain that there %exists 
+% no probability, $\P$, such that $\P(H|x) = 1$
+% for every $H \in \AA(\phi_x)$ and 
+% $\P(H_0|x) \neq 1$.
+
+% If $\RR(\phix) \neq \{H^c: H \in \AA(\phix)\}$, then
+% there exists $H_0 \in \sigma(\Theta)$ such that
+% $\phi(H_0|x) \in \{0,1\}$ and $\phi(H_0^c|x) \neq 1-\phi(H_0|x)$.
+% If $\phi(H_0|x) = \phi(H_0^c|x)$, then there exists 
+% no probability, $\P$, such that
+% $\P(H_0|x) = 1-\phi(H|x) = \P(H_0^c|x)$.
+% If $\phi(H_0^c|x) = \half$, then for every probability, $\P$,
+% such that $\P(H_0|x) = 1-\phi(H_0|x)$, obtain that
+% $\P(H_0^c|x) = 1-\P(H_0|x) \in \{0,1\}$.
+%\end{proof} 
+
+\begin{lemma}
+ \label{lemma:coherence_to_prob}
+ If a \summ, $\phi$, is 
+ $\aleph_0$-coherent, then
+ for every $H_0 \in \sigma(\Theta)$ and 
+ $x \in \sX$ there exists a probability, $\P_{H_{0}}$, such that:
+ \begin{enumerate}
+  \item $\P_{H_{0}}(H|x) = \phi(H|x)$, 
+  for every $H$
+  such that $\phi(H|x) \in \{0,1\}$,
+  \item $\P_{H_{0}}(H_0|x) = 1$, 
+  if $\phi(H_0|x) = \half$.
+ \end{enumerate}
+\end{lemma}
+
+\begin{proof}  
+ For each ultrafilter over $\sigma(\Theta)$, $\mathcal{F}$,
+ let $\P_{\mathcal{F}}$ be a probability such that
+ $\P_{\mathcal{F}}(H) = 1$ if 
+ $H \in \mathcal{F}$ and
+ $\P_{\mathcal{F}}(H) = 0$, otherwise.
+ Assume $\phi$ is $\aleph_0$-coherent.
+ It follows from \cref{thm:coherence-filter} that
+ $\AA(\phix)$ is a filter over $\sigma(\Theta)$
+ and that $\RR(\phix) = \{H: H^c \in \AA(\phix)\}$.
+ Pick an arbitrary $H_0 \in \sigma(\Theta)$ and $x \in \sX$.
+ If $\phix(H_0|x) \neq \half$, then let
+ $\mathcal{F}$ be an arbitrary ultrafilter over $\sigma(\Theta)$
+ such that $\AA(\phix) \subseteq \mathcal{F}$.
+ The conditions of the lemma are satisfied choosing
+ $\P_{H_0} := \P_{\mathcal{F}}$.
+ If $\phi(H_0|x) = \half$, then let
+ $\mathcal{F}$ be an
+ ultrafilter over $\sigma(\Theta)$ such that
+ $\AA(\phix) \subseteq \mathcal{F}$ and
+ $H_0 \in \mathcal{F}$.
+ The conditions of the lemma are satisfied by
+ choosing $\P_{H_0} := \P_{\mathcal{F}}$.
+\end{proof}
+
+%\begin{theorem}
+% \label{thm:agnostic_prob}
+% A \summ, $\phi$, is 
+% $\aleph_0$-coherent if and only if,
+% for every $H_0 \in \sigma(\Theta)$ and 
+% $x \in \sX$
+% there exists a probability, $\P_{H_{0}}$, 
+% such that:
+% \begin{enumerate}
+%  \item  $\P_{H_{0}}(H|x) = \phi(H|x)$ for every $H$
+%  such that $\phi(H|x) \in \{0,1\}$,
+%  \item $\P_{H_{0}}(H_0|x) \notin \{0,1\}$, if
+%  $\phi(H_0|x) = \half$.
+% \end{enumerate}
+%\end{theorem}
+
+%\begin{proof}[Proof of \cref{thm:agnostic_prob}] 
+% ($\Longleftarrow$) Follows directly from %\cref{lemma:prob_to_coherence}.
+% ($\Longrightarrow$) Let $\P_{H_0}$ and %$\P_{H_0^c}$ be
+% such as in \cref{lemma:coherence_to_prob}. 
+% The conditions of the theorem are satisfied choosing
+% $\P^*_{H_0} = 0.5(\P_{H_0} + \P_{H_0^c})$.
+%\end{proof} 
+
+\begin{definition}
+ Let $\sL$ be the linear space generated by
+ $\{\I_H: H \in \sigma(\Theta)\}$ and
+ $\sP$ be a family of probabilities over $\sigma(\Theta)$.
+\end{definition}
+
+\begin{lemma}
+ \label{lemma:nonstd_1}
+ For every $B \in \sigma(\Theta)$ and
+ $X \in \sL$, $X \I_{B} \in \sL$
+\end{lemma}
+
+\begin{proof}
+ There exist $(\alpha_i,A_i) \in \Re \times \sigma(\Theta)$,
+ for $1 \leq i \leq n$, such that $X = \sum_{i} \alpha_i \I_{A_i}$.
+ Note that
+ \begin{align*}
+  X \I_B 
+  = \sum_{i} \alpha_i \I_{A_i} \I_B
+  = \sum_{i} \alpha_i \I_{A_i \cap B} \in \sL
+ \end{align*}
+\end{proof}
+
+\begin{definition}
+ \label{def:pref-1}
+ Let $X, Y \in \sL$.
+ We say that $X \stackrel{\sP}{\preceq} Y$ if,
+ for every $\P \in \sP$,
+ $\E_{\P}[X] \leq \E_{\P}[Y]$, and
+ $X \stackrel{\sP}{\prec} Y$ if
+ $X \stackrel{\sP}{\preceq} Y$ and
+ there exists $\P \in \sP$ such that
+ $\E_{\P}[X] < \E_{\P}[Y]$.
+ Also, $X \stackrel{*}{\prec} Y$ if
+ $X \leq Y$ and there exists $\omega \in \Omega$
+ such that $X(\omega) < Y(\omega)$.
+ Note that $\stackrel{\sP}{\preceq}$ is 
+ a weak partial order and
+ both $\stackrel{\sP}{\prec}$ and
+ $\stackrel{*}{\prec}$ are 
+ strict partial orders.
+\end{definition}
+
+\begin{definition}
+ \label{def:pref-2}
+ We say that $X \preceq Y$ if either
+ $X \leq Y$ or $X \stackrel{\sP}{\prec} Y$.
+ Also, $X \ll Y$ if either
+ $X \stackrel{*}{\prec} Y$ or $X \stackrel{\sP}{\prec} Y$.
+\end{definition}
+
+\begin{lemma}
+ \label{lemma:prec_e}
+ If $X \preceq Y$, then $X \stackrel{\sP}{\preceq} Y$.
+\end{lemma}
+
+\begin{lemma} 
+ \label{lemma:nonstd_2}
+ The following statements hold:
+ \begin{enumerate}[leftmargin=*]
+  \item For every $X \in \sL$, 
+  $X \preceq X$. Also, there exist
+  $X, Y \in \sL$ such that $X \prec Y$.
+  
+  \item If $Y-X \equiv Y'-X'$, then
+  $X \preceq Y$ implies that $X' \preceq Y'$.
+  
+  \item If $X_j \preceq Y_j$ and 
+  $\alpha_j \in \Re^{+}$ for every $j \in \{1,2\}$, then
+  $\sum_{j=1}^2 \alpha_j X_j \preceq \sum_{j=1}^2 \alpha_j Y_j$.
+  
+  \item $X \prec Y$ if and only if $X \ll Y$.
+  Also, if either $X \preceq Y$ and $Y \ll Z$ or
+  $X \ll Y$ and $Y \preceq Z$, then $X \ll Z$.
+  
+  \item If $X \leq Y$, then $X \preceq Y$ and if
+  $X \stackrel{*}{\prec} Y$, then $X \ll Y$.
+ \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+ \begin{enumerate}[leftmargin=*]
+  \item Since $X \leq X$, $X \preceq X$.
+  Also, $\I_{\emptyset} \prec \I_{\Omega}$ since 
+  $\I_{\emptyset} \stackrel{*}{\prec} \I_{\Omega}$ and
+  neither $\I_{\Omega} \leq \I_{\emptyset}$ or
+  $I_{\Omega} \stackrel{\sP}{\prec} \I_{\emptyset}$.
+  
+  \item $X \preceq Y$ implies that either 
+  $X \leq Y$ or $X \stackrel{\sP}{\prec} Y$.
+  If $X \leq Y$, since $Y-X \equiv Y'-X'$, 
+  obtain $X' \leq Y'$ and, therefore, 
+  $X' \preceq Y'$. Also,
+  since $Y-X \equiv Y'-X'$, for every $\P \in \sP$,
+  $\E_{\P}[X-Y] = \E_{\P}[X'-Y']$. That is,
+  if $X \stackrel{\sP}{\prec} Y$, then 
+  $X' \stackrel{\sP}{\prec} Y'$ and $X' \preceq Y'$.
+  
+  \item 
+  Either $X_i \stackrel{\sP}{\prec} Y_i$ for some $i$ or
+  $X_i \leq Y_i$ for every $i$.
+  First, assume $X_i \stackrel{\sP}{\prec} Y_i$ for some $i$.
+  Since $X_{3-i} \preceq Y_{3-i}$, it follows from
+  \cref{lemma:prec_e} that 
+  $X_{3-i} \stackrel{\sP}{\preceq} Y_{3-i}$.
+  Since $X_i \stackrel{\sP}{\prec} Y_i$ and
+  $X_{3-i} \stackrel{\sP}{\preceq} Y_{3-i}$, conclude that
+  $\sum_{j=1}^2 \alpha_j X_j \stackrel{\sP}{\preceq}
+  \sum_{j=1}^2 \alpha_j Y_j$, that is,
+  $\sum_{j=1}^2 \alpha_j X_j \preceq
+  \sum_{j=1}^2 \alpha_j Y_j$.
+  Second, assume that $X_i \leq Y_i$ for every $i$. Conclude that
+  $\sum_{j=1}^2 \alpha_j X_j \leq
+  \sum_{j=1}^2 \alpha_j Y_j$, that is,
+  $\sum_{j=1}^2 \alpha_j X_j \preceq
+  \sum_{j=1}^2 \alpha_j Y_j$
+  
+  \item 
+  First, we prove that $X \prec Y$ if and only if $X \ll Y$.
+  If $X \preceq Y$, then either 
+  $X \equiv Y$, or $X \stackrel{*}{\prec} Y$, 
+  or $X \stackrel{\sP}{\prec} Y$. Since
+  $\stackrel{*}{\prec}$ and $\stackrel{\sP}{\prec}$ are
+  partial strict orders,
+  $X \prec Y$ if and only if 
+  $X \stackrel{*}{\prec} Y$ or
+  $X \stackrel{\sP}{\prec} Y$, that is,
+  $X \prec Y$ if and only if $X \ll Y$.
+  
+  Next, let either $X \ll Y$ and $Y \preceq Z$ or
+  $X \preceq Y$ and $Y \ll Z$.
+  There are three cases to consider.
+  First, assume $X \stackrel{\sP}{\prec} Y$.
+  It follows from \cref{lemma:prec_e} that
+  $Y \stackrel{\sP}{\preceq} Z$ and, therefore,
+  $X \stackrel{\sP}{\prec} Z$, that is,
+  $X \ll Z$. Second, a symmetric chain of reasoning
+  follows if  $Y \stackrel{\sP}{\prec} Z$.
+  Finally, if neither $X \stackrel{\sP}{\preceq} Y$ or
+  $Y \stackrel{\sP}{\preceq} Z$, then
+  $X \leq Y$, $Y \leq Z$ and either 
+  $X \stackrel{*}{\prec} Y$ or
+  $Y \stackrel{*}{\prec} Z$. It follows that
+  $X \stackrel{*}{\prec} Z$, that is,
+  $X \ll Z$.
+  
+  \item Follows directly from definition.
+ \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+ \label{lemma:coherence-nonstd_1}
+ If $\phi$ is $\aleph_0$-coherent,
+ then there exists a non-standard probability,
+ $\P_x$, that represents $\phi$.
+\end{lemma}
+
+\begin{proof}
+ Let $\phi$ be $\aleph_0$-coherent.
+ It follows from \cref{lemma:coherence_to_prob} that
+ for every $H_0 \in \sigma(\Theta)$ and $x \in \sX$
+ there exists a probability, $\P_{H_{0}}$, such that
+ $\P_{H_{0}}(H|x) = \phi(H|x)$ when $\phi(H|x) \in \{0,1\}$, and
+ $\P_{H_{0}}(H_0|x) = 1$, if
+ $\phi(H_0|x) = \half$.
+ Let $\sP = \{\P_{H_0}: H_0 \in \sigma(\Theta)\}$,
+ and $\preceq$ and $\ll$ be such as in
+ \cref{def:pref-1,def:pref-2}. 
+ Next, we show that $\ll$ satisfies
+ four conditions that are 
+ analogous to \cref{def:rep}.
+
+ \begin{enumerate}
+  \item Let $H_A^1$ and $H_A^2$ be such that
+ $\phi(H_A^1|x) = \phi(H_A^1|x) = 1$.
+ For every $\P \in \sP$,
+ since $\P(H_A^1) = \P(H_A^2) = 1$,
+ obtain that
+ $\E_{\P}\left[\I_{H_A^1}\right] 
+ = \E_{\P}\left[\I_{H_A^2}\right] = 1$.
+ Hence, for every $\alpha \in (0,1)$,
+ $\alpha\E_{P}\left[\alpha \I_{H_A^1}\right] 
+ < \E_{P}\left[\I_{H_A^2}\right]$,
+ that is,
+ $\alpha\I_{H_A^1} 
+ \stackrel{\sP}{\prec} \I_{H_A^2}$ and, therefore,
+ $\alpha\I_{H_A^1} \ll \I_{H_A^2}$.
+ 
+  \item Let $H_A$ and $H_U$ be such that
+ $\phi(H_A|x) = 1$ and $\phi(H_U|x) = \half$.
+ For every $\P \in \sP$, 
+ $\P(H_A^c) = 0$ and
+ $\E_{\P}[\I_{H_{A^c}}] = 0$.
+ Furthermore, $\P_{H_U}(H_U) = 1$.
+ Hence, for every $\alpha \in (0,1)$,
+ $\E_{\P_{H_U}}\left[\alpha\I(H_U)\right]
+ = \alpha > 0$.
+ Conclude that $\I_{H_{A^c}} 
+ \stackrel{\sP}{\prec} \alpha \I_{H_U}$ and,
+ therefore, $\I_{H_{A^c}} 
+ \ll \alpha \I_{H_U}$.
+ Also, since $\phi$ is $\aleph_0$-coherent,
+ it follows from invertibility that
+ $\phi(H_U^c|x) = \half$. Hence, 
+ from the previous considerations,
+ $\I_{H_{A^c}} \ll \alpha \I_{H_U^c}$.
+
+ \item Let $\phi(H_A|x) = 1$ and $\phi(H_R|x) = 0$.
+ For every $\P \in \sP$,
+ $\P(H_A) = 1$ and $\P(H_R) = 0$. Hence,
+ for every $\alpha \in (0,1)$,
+ $\E_\P[\I_{H_R}] = \E_\P[\I_{H_A^c}] = 0
+ < \alpha = \E_\P[\alpha\I_{H_R^c}] 
+ = \E_\P[\alpha\I_{H_A}]$. Hence,
+ $\I_{H_R} \stackrel{\sP}{\prec} \alpha \I_{H_A}$
+ and $\I_{H_A^c} \stackrel{\sP}{\prec} \alpha \I_{H_R^c}$ and, therefore,
+ $\I_{H_R} \ll \alpha \I_{H_A}$
+ and $\I_{H_A^c} \ll \alpha \I_{H_R^c}$.
+ 
+ 
+ \item Let $\phi(H_R|x) = 0$ and
+ $\phi(H_U|x) = \half$. For every $\P \in \sP$,
+ $\P(H_R) = 0$ and $\E_\P[\I_{H_R}] = 0$. Also,
+ $\P_{H_U}(H_U) = 1$. Hence,
+ for every $\alpha \in (0,1)$,
+ $\E_{\P_{H_U}}[\alpha \I_{H_U}] = \alpha > 0$.
+ Conclude that $\I_{H_R} 
+ \stackrel{\sP}{\prec} \alpha \I_{H_U}$ and, therefore,
+ $\I_{H_R} \ll \alpha \I_{H_U}$.
+ Also, since $\phi$ is $\aleph_0$-coherent,
+ $\phi(H_U^c) = \half$ and, therefore,
+ from the previous considerations,
+ $\I_{H_R} \ll \alpha \I_{H_U^c}$.
+ \end{enumerate}
+ 
+ The proof follows from \cref{lemma:nonstd_1,lemma:nonstd_2} and
+ \citet{Schervish2022}.
+\end{proof}
+
+\begin{lemma}
+ \label{lemma:lemma:coherence-nonstd_2_1}
+ If $\P_x$ represents a proper \summ, $\phi$,
+ then for every $H \in \sigma(\Theta)$,
+ $\phi(H|x) = 1 - \phi(H^c|x)$,
+ that is, $\phi$ satisfies invertibility.
+\end{lemma}
+
+\begin{proof}
+ There are three cases to consider:
+ \begin{enumerate}
+  \item $\left(\phi(H|x) = \half\right)$
+  If $\phi(H^c|x) = 0$, then
+  by taking $\alpha = 1$, obtain that
+  $\P_x(H^c) < \P_x((H)^c)$, a contradiction.
+  If $\phi(H^c|x) = 1$, then
+  by taking $\alpha = 1$, obtain that
+  $\P_x((H^c)^c) < \P_x(H)$, a contradiction.
+  Conclude that $\phi(H^c|x) = \half$.
+
+  \item $\left(\phi(H|x) = 0\right)$
+  Since $\phi$ is proper, $\phi(\Theta|x) = 1$.
+  If $\phi(H^c|x) = 0$, then by
+  taking $\alpha = 0.1$ obtain that
+  $\P_x(H) < 0.1 \P_x(\Omega) = 0.1$ and
+  $\P_x(H^c) < 0.1 \P_x(\Omega) = 0.1$.
+  Conclude that 
+  $\P_x(H) + \P_x(H^c) = 0.2$, a contradiction.
+  Therefore, $\phi(H^c|x) \neq 0$.
+  Also, it follows from the previous item that
+  $\phi(H^c|x) \neq \half$.
+  Conclude that $\phi(H^c|x) = 1$.
+ 
+  \item $\left(\phi(H|x) = 1\right)$.
+  Since $\phi$ is proper, $\phi(\Theta|x) = 1$.
+  If $\phi(H^c|x) = 1$, then by taking
+  $\alpha = 0.9$ obtain that
+  $\P_x(H|x) > 0.9\P_x(\Theta) = 0.9$ and
+  $\P_x(H^c|x) > 0.9\P_x(\Theta) = 0.9$, that is,
+  $\P_x(H|x) + \P_x(H^c|x) > 1.8$, a contradiction.
+  Also, from the first item,
+  $\phi(H^c|x) \neq \half$. Conclude that
+  $\phi(H^c|x) = 0$.
+ \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+ \label{lemma:lemma:coherence-nonstd_2_2}
+ If $\P_x$ represents $\phi$ and
+ $\P_x(H) \leq \P_x(H')$, then
+ $\phi(H|x) \leq \phi(H'|x)$.
+ Furthermore, if $\P_x$ represents $\phi$ and
+ $H \subset H'$, then
+ $\phi(H|x) \leq \phi(H'|x)$, that is,
+ $\phi$ satisfies monotonicity.
+\end{lemma}
+
+\begin{proof}
+ For the first part,
+ assume $\P_x(H) \leq \P_x(H')$.
+ There are three cases to consider:
+ \begin{enumerate}
+  \item $\phi(H|x) = 0$.  
+  The result follows since
+  $\phi(H'|x) \in \left\{0,\half,1\right\}$.
+
+  \item $\phi(H|x) = \half$.
+  Assume $\phi(H'|x) = 0$. Since
+  $\P_x$ represents $\phi$,
+  by taking $\alpha < 1$, obtain that
+  $\P_x(H'|x) < \P_x(H)$, a contradiction.
+  Hence, $\phi(H'|x) \geq \half = \phi(H|x)$.
+
+  \item $\phi(H|x) = 1$.
+  Assume $\phi(H'|x) \neq 1$.
+  Since $\P_x$ represents $\phi$,
+  by taking $\alpha < 1$, obtain that
+  $1 - \P_x(H) < 1 - \P_x(H')$, that is,
+  $\P_x(H) > \P_x(H')$, a contradiction.
+  Hence $\phi(H'|x) = 1 \geq \phi(H|\x)$.
+ \end{enumerate}
+ For the second part, 
+ let $H$ and $H'$ be such that
+ $H \subset H'$. 
+ Since $\P_x$ is a probability, 
+ $\P_x(H) \leq \P_x(H')$. Hence,
+ it follows from 
+ the first part that
+ $\phi(H|x) \leq \phi(H'|x)$.
+\end{proof}
+
+\begin{lemma}
+ \label{lemma:lemma:coherence-nonstd_2_3}
+ If $\P_x$ represents a \summ, $\phi$, and
+ $\phi(H_i|x) = 1$, for every $1 \leq i \leq n$,
+ then $\phi(\cap_{i=1}^n H_i|x) = 1$, that is,
+ $\phi$ satisfies $\aleph_0$-consonance.
+\end{lemma}
+
+\begin{proof} 
+ Let $H_* = \cap_{i=1}^n H_i$ and
+ assume that $\phi(H_*|x) \neq 1$.
+ Since $\P_x$ represents $\phi$, 
+ it follows that
+ \begin{align*}
+  1-\P_x(H_i) &< n^{-1}(1 - \P_x(H_*)) 
+  \nonumber \\
+  \P_x(H_i^c) &< n^{-1} \P_x(H_*^c) 
+  \nonumber \\
+  \sum_{i=1}^n \P_x(H_i^c)
+  &< \P_x(H_*^c) 
+  \nonumber \\
+  \P_x(\cup_{i=1}^n H_i^c)
+  &< \P_x(H_*^c) 
+  & \P_x(\cup_{i=1}^n H_i^c) 
+  \leq \sum_{i=1}^n \P_x(H_i^c) 
+  \nonumber \\
+  \P_x(H_*)
+  &> \P_x(H_*)
+  & (\cup_{i=1}^n H_i^c)^c = H_*
+ \end{align*}
+ Conclude that $\phi(H_*|x) = 1$.
+\end{proof}
+
+\begin{lemma}
+ \label{lemma:coherence-nonstd_2}
+ If there exists a nonstandard probability,
+ $\P_x$, that represents a
+ proper \summ, $\phi$, then
+ $\phi$ is $\aleph_0$-coherent.
+\end{lemma}
+
+\begin{proof}
+ Follows directly from
+ \cref{lemma:lemma:coherence-nonstd_2_1,lemma:lemma:coherence-nonstd_2_2,lemma:lemma:coherence-nonstd_2_3}.
+\end{proof}
+
+\begin{proof}[Proof of \cref{thm:coherence-nonstd}]
+ Follows directly from
+ \cref{lemma:coherence-nonstd_1,lemma:coherence-nonstd_2}
+\end{proof}
+
+\begin{proof}[Proof of \cref{thm:min_u}]
+ Let 
+ \begin{align*}
+  U_1(\phi, \theta) &= \I(\theta \in P_{\phi}(X)) - \lambda \mu(P_{\phi}(X)), \text{ and } \\
+  U_2(\phi, \theta) &= \I(\theta \in N_{\phi}(X)) - \lambda \mu(N_{\phi}(X)).
+ \end{align*}
+ It follows from \citet{Schervish2012} that
+ $\phi$ maximizes $U_1$ and $U_2$ 
+ if and only if $P_{\phi}(X)$ and $N_{\phi}(X)$
+ a.s. satisfy
+ \begin{align}
+  \label{eq:min_u_1}
+  P_{\phi}(X) = N_{\phi}(X) =
+  R_x :=
+  \left\{\theta \in \Theta: 
+  \frac{d\P(\theta|X)}{d\mu} > (1+\lambda)^{-1} \right\}.
+ \end{align}
+ Since $U = U_1 + U_2 -\odot \cdot \rho(U_{\phi})$
+ and $\odot \cdot \rho(U_{\phi})$ is infinitesimal,
+ conlude that \cref{eq:min_u_1} is 
+ a necessary condition for
+ $\phi$ to maximize $U$.
+ Furthermore, it follows from \cref{def:region_p_n} that \cref{eq:min_u_1} holds 
+ if and only if
+ $\phi(H|x) \geq \half$ when
+ $H \cap R_x \neq \emptyset$ and
+ $\phi(H|x) \leq \half$ when
+ $H^c \cap R_x \neq \emptyset$.
+ From these conditions, one obtains that
+ $\phi(H|x) = \half$ whenever
+ $H \cap R_x \neq \emptyset$ and
+ $H^c \cap R_x \neq \emptyset$.
+ Since the \summ\ based on $R_x$, $\phi^*$,
+ obtains $\phi(H|x) = \half$ if and only if
+ $H \cap R_x \neq \emptyset$ and
+ $H^c \cap R_x \neq \emptyset$, conclude that
+ $\phi^*$ minimizes $\rho(A_{\phi}(X))$ among
+ the $\phi$ that satisfy \cref{eq:min_u_1}.
+ That is, $\phi^*$ maximizes $U$.
+\end{proof}

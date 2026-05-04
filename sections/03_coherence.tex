@@ -1,0 +1,275 @@
+\section{Logically coherent \summs\ as probabilities}
+\label{sec:coh_prob}
+
+This section shows that
+a \summ \ is logically coherent if and only if
+it is a coherent representation of uncertainty \citep{Finetti1931}, that is,
+it admits a probability representation.
+While \cref{sec:coherent_standard} 
+discusses the special case of 
+\stdsumms,
+\cref{sec:coherent_agnostic} discusses
+thernary \summs.
+
+\subsection{Standard tests}
+\label{sec:coherent_standard}
+
+From a practical perspective,
+a \stdsumm \ divides hypotheses
+into those that 
+are summarized as true $(\phi(H|x) = 1)$
+and as false $(\phi(H|x) = 0)$.
+One might ask whether
+the latter can be interpreted as
+having probability $0$ and
+the former as having probability $1$.
+\Cref{cor:std_prob} shows that
+this is the case if and only if
+$\phi$ is at least 
+a $\aleph_0$-coherent \summ.
+
+\begin{theorem}
+ \label{cor:std_prob}
+ A \stdsumm, $\phi$, is $\aleph_0$-coherent
+ if and only if $\phi$ is
+ a $\{0,1\}$-probability.
+\end{theorem}
+
+However, what is the difference between
+$\aleph_0$-coherence and
+other types of $\kappa$-coherence? 
+The following result shows that,
+under weak conditions,
+$\kappa$-coherence can 
+divided into only two types:
+
+\begin{theorem}
+ \label{thm:coherent_std_1}
+ If $|\Theta|$ is not a measurable cardinal
+ \citep{Ulam1930,Jech2013}, then
+ $\phi$ is $\aleph_1$-coherent 
+ if and only if
+ $\phi$ is completely-coherent.
+ In this case, 
+ $\phi$ is a completely-additive 
+ $\{0,1\}$-probability.
+\end{theorem}
+
+In other words,
+if $|\Theta|$ is not a measurable cardinal, then
+$\aleph_0$-coherent \stdsumms\ are
+divided into two types.
+Either $\phi$ is not $\aleph_1$-coherent and
+is an extreme-valued 
+strictly finitely-additive probability, or
+$\phi$ is $\aleph_1$-coherent and
+an extreme-valued
+completely-additive probability.
+
+The next subsection shows that
+a similar conclusion exists
+for logically-coherent 
+thernary \summs.
+
+\subsection{General \summs}
+\label{sec:coherent_agnostic}
+
+A three-valued \summ\ divides 
+hypotheses among
+the ones that are believed to be true
+$(\phi(H|x) = 1)$, 
+to be false
+$(\phi(H|x) = 0)$,
+and the ones that remain unknown
+$(\phi(H|x) = \half)$.
+From a practical perspective, 
+one might interpret 
+true hypotheses as ``highly likely'',
+false hypotheses as ``highly unlikely'', and
+undecided hypotheses as somewhere in-between.
+\Cref{def:rep} is a necessary condition for
+such an interpretation:
+
+\begin{definition}
+ \label{def:rep}
+ A nonstandard probability, $\P_x$, 
+ represents a \summ, $\phi$, if
+ for every $x \in \sX$ and $\alpha \in (0,1)$:
+ \begin{itemize}
+  \item If $\phi(H_A^1|x) = \phi(H_A^2|x) = 1$,
+  then $\alpha\P_x(H_A^1) < \P_x(H_A^2)$,
+  \item If $\phi(H_A|x) = 1$ and 
+  $\phi(H_U|x) = \half$, then
+  $\P_x(H_A^c) < 
+  \alpha \min(\P_x(H_U^c), \P_x(H_U))$,
+  \item If $\phi(H_A|x) = 1$ and 
+  $\phi(H_U|x) = 0$, then
+  $\P_x(H_A^c) < 
+  \alpha \P_x(H_U^c)$ and
+  $\P_x(H_R) < \alpha \P_x(H_U)$,
+  \item  If $\phi(H_R|x) = 0$ and
+  $\phi(H_U|x) = \half$, then
+  $\P_x(H_R) 
+  < \alpha \min(\P_x(H_U),\P_x(H_U^c))$.
+ \end{itemize}
+\end{definition}
+
+In other words, if $\P_x$ represents $\phi$,
+then the probability of 
+every undecided hypothesis and its complement is
+in-between that of every hypothesis
+believed to be true false and 
+believed to be true.
+Furthermore, the probability of every
+hypothesis belived to be false is 
+arbitrarily closer to $0$
+then every other hypothesis 
+not believed to be false.
+Similarly,
+the probability of every hypothesis
+belived to be true
+is arbitrarily closer to $1$ then 
+every other not believed to be true.
+
+The existence of such a probability representation
+is equivalent to $\aleph_0$-coherence:
+
+\begin{theorem}
+ \label{thm:coherence-nonstd}
+ A proper \summ, $\phi$, is 
+ $\aleph_0$-coherent
+ if and only if
+ there exists a non-standard probability
+ that represents $\phi$. 
+\end{theorem}
+
+\cref{thm:coherence-nonstd} shows that,
+$\phi$ is $\aleph_0$-coherent
+if and only if
+it agrees qualitatively with
+a nonstandard probability, $\P_x$.
+That is, the standard part of $\P_x$ is $0$
+for every false  hypothesis and is $1$
+for every true hypothesis.
+Furthermore, the probability of 
+every undecided hypothesis is
+higher than that of every false hypothesis and
+lower than that of every true hypothesis.
+
+A particular types of $\aleph_0$-coherent \summs \ are region-based \summs, as described below:
+
+\begin{definition}[Region-based \summ]
+ \label{def:region-based}
+ $\phi$ is a region-based \summ \ if
+ there exists $R_x \subset \Theta$ such that
+ \begin{align*}
+  \phi(H|x) &=
+  \begin{cases}
+   1 & \text{, if } R_x \subseteq H, \\
+   0 & \text{, if } R_x \cap H = \emptyset, \\
+   \half & \text{, otherwise.}
+  \end{cases}
+ \end{align*}
+\end{definition}
+
+Region-based \summs \ are illustrated
+in \cref{fig::region} and
+admit an intuitive interpretation. 
+Assume that $R_x$ are
+plausible points for $\theta$ 
+after $x$ is observed.
+If all plausible points fall in $H$,
+then one believes that $H$ is true.
+Similarly, if all plausible points
+fall outside of $H$, then
+one believes $H$ to be false.
+Otherwise, one remains undecided.
+Furthermore, a particular representation
+of a region-based \summ \ assigns
+probability $1$ to $R_x$ and
+an infinitesimal value to each element of $R_x$.
+
+\begin{figure}
+  \center
+  \gfbstfig
+  \mbox{} \vspace{-2mm} \mbox{} \\ 
+  \caption{$\phi$ is
+  a region-based \summ \ for $H$.}
+  \label{fig::region}
+\end{figure}
+
+Under weak conditions, a \summ \ is
+$\aleph_1$-coherent if and only if
+it is a region-based \summ.
+
+\begin{definition}
+ For a topology over $\Theta$, $\tau$, 
+ and $H \subset \Theta$, let
+ $\text{Cl}_\tau(H)$ denote the
+ closure of $H$ with respect to $\tau$. 
+ A \summ, $\phi$, is smooth with respect to
+ a topology, $\tau$, if
+ $\phi(H|x) = 0$ implies that
+ $\phi(\text{Cl}_\tau(H)|x) = 0$.
+\end{definition}
+
+\begin{theorem}
+ \label{thm:second-countable}
+ Assume that there exists 
+ a second-countable topology, $\tau$, 
+ such that $\phi$ is smooth
+ with respect to $\tau$ and
+ $\tau \subset \sigma(\Theta)$.
+ The \summ, $\phi$, is $\aleph_1$-coherent
+ if and only if
+ it is a region-based \summ.
+\end{theorem}
+
+\Cref{thm:second-countable} shows that,
+similarly to \stdsumms,
+$\aleph_0$-coherent 
+\summs \ are also 
+divided into two types.
+If a \summ \ is not $\aleph_1$-coherent, then
+it admits a probability representation and
+is not a region-based \summ.
+If the \summ \ is $\aleph_1$-coherent, then
+it is a region-based \summ.
+
+\red{Not sure how to connect the following examples to the text.}
+
+\begin{example}
+ Let $\Theta \subset \Re^d$, and
+ $\phix(H) = \I(\P(\theta \in H > k|x))$,
+ for some $k \in (0,1)$.
+ If for every $x$, $\theta|X=x$ is
+ a continuous random variable, then
+ $\phi$ is not smooth with respect to
+ the usual topology over $\Re^d$.
+ For instance, for every $x$,
+ $\phi(\mathbb{Q}^d|x) = 0$ and
+ $\phi(\Re^d|x) = 1$.
+\end{example}
+
+\begin{example}
+ Let $\Theta \subset \Re^d$ and
+ $\mu$ be the Lebesgue measure over $\Theta$.
+ The log-likelihood of $\theta \in \Theta$
+ based on $x \in \sX$ is defined as
+  $l_{x}(\theta)
+ := \log\left(\frac{d\P_{\theta}(x)}{d\mu}\right)$.
+ Similarly, the log-likelihood statistic for
+ an hypothesis, $H$, is
+ $\Lambda_{H}(x) :=
+ -2\left(\sup_{\theta \in H}l_x(\theta) 
+ - \sup_{\theta \in \Theta}l_x(\theta)\right)$.
+ The standard log-likehood \summ \ is defined as
+ $\phi(H|x) = \I(\Lambda_{H}(x) > k_{H})$,
+ where $k_H$ is chosen so that
+ $\sup_{\theta \in H} \E_{\theta \in H}[\phi(H)] = \alpha$.
+ If the log-likelihood is continuous with respect to $\tau$,
+ then $\phi$ is smooth 
+ with respect to $\tau$.
+\end{example}
+
+
