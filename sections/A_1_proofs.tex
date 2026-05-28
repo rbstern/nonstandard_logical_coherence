@@ -114,7 +114,7 @@
  then $\FF$ is an ultrafilter over $\Theta$.
 \end{definition}
 
-\subsection{Related to \cref{sec:coherent_standard}}
+\subsection{Proofs of \cref{cor:std_prob,thm:coherent_std_1}}
 
 \begin{lemma}
  \label{cor:standard-ultrafilter}
@@ -147,73 +147,7 @@
  Follows directly from \cref{cor:standard-ultrafilter}.
 \end{proof}
 
-\subsection{Related to \cref{sec:coherent_agnostic}}
-
-%\begin{lemma}
-% \label{lemma:prob_1_filter}
-% Let $\phi$ be \summ.
-% Define
-% \begin{align*}
-%  \mathcal{F} = \{H \in \sigma(\Theta): 
-%  \exists n \in \mathbb{N} \text{ and } 
-%  H_1, H_2,\ldots, H_n \in \AA(\phix) 
-%  \text{ s.t. } \cap_{i=1}^n H_i \subseteq H \}.
-% \end{align*}
-% If $\P$ is a probability such that
-% $\P(H|x) = 1$ for every $H \in \AA(\phix)$, then
-% $\P(H|x) = 1$ for every $H \in \mathcal{F}$.
-%\end{lemma}
-
-%\begin{proof}
-% Let $H \in \mathcal{F}$.
-% By construction, there exist 
-% $H_1,\ldots,H_n \in \AA(\phix)$ such that
-% $\cap_{i=1}^n H_i \subseteq H$.
-% Let $\P$ be a probability such that
-% $\P(H|x) = 1$ for every $H \in \AA(\phix)$.
-% Since $\P$ is a probability,
-% $\P(\cap_{i=1}^n H_i|x) = 1$. Hence,
-% since $\cap_{i=1}^n H_i \subseteq H$, $\P(H|x) = 1$.
-%\end{proof}
-
-%\begin{lemma}
-% \label{lemma:prob_to_coherence}
-% If a \summ, $\phi$, is 
-% not $\aleph_0$-coherent, then
-% there exists no probability, $\P$, such that
-% $\P(H|x) = \phi(H|x)$, for every $H$ such that
-% $\phi(H|x) \in \{0,1\}$.
-%\end{lemma}
-
-%\begin{proof} 
-% Assume $\phi$ is not
-% $\aleph_0$-coherent. 
-% It follows from \cref{thm:coherence-filter} that
-% there exists $x \in \sX$ such that
-% either $\AA(\phix)$ is not a filter 
-% over $\sigma(\Theta)$ or
-% $\RR(\phix) \neq \{H^c: H \in \AA(\phix)\}$.
- 
-% If $\AA(\phix)$ is not a filter, then
-% let $\mathcal{F}$ be such as in %\cref{lemma:prob_1_filter}.
-% Since $\mathcal{F}$ is a filter,
-% there exists $H_0 \in \mathcal{F}$ such that
-% $H_0 \notin \AA(\phix)$. Using 
-% \cref{lemma:prob_1_filter} obtain that there %exists 
-% no probability, $\P$, such that $\P(H|x) = 1$
-% for every $H \in \AA(\phi_x)$ and 
-% $\P(H_0|x) \neq 1$.
-
-% If $\RR(\phix) \neq \{H^c: H \in \AA(\phix)\}$, then
-% there exists $H_0 \in \sigma(\Theta)$ such that
-% $\phi(H_0|x) \in \{0,1\}$ and $\phi(H_0^c|x) \neq 1-\phi(H_0|x)$.
-% If $\phi(H_0|x) = \phi(H_0^c|x)$, then there exists 
-% no probability, $\P$, such that
-% $\P(H_0|x) = 1-\phi(H|x) = \P(H_0^c|x)$.
-% If $\phi(H_0^c|x) = \half$, then for every probability, $\P$,
-% such that $\P(H_0|x) = 1-\phi(H_0|x)$, obtain that
-% $\P(H_0^c|x) = 1-\P(H_0|x) \in \{0,1\}$.
-%\end{proof} 
+\subsection{Proof of \cref{{thm:coherence-nonstd}}}
 
 \begin{lemma}
  \label{lemma:coherence_to_prob}
@@ -498,7 +432,6 @@
  $\I_{H_R} \ll \alpha \I_{H_A}$
  and $\I_{H_A^c} \ll \alpha \I_{H_R^c}$.
  
- 
  \item Let $\phi(H_R|x) = 0$ and
  $\phi(H_U|x) = \half$. For every $\P \in \sP$,
  $\P(H_R) = 0$ and $\E_\P[\I_{H_R}] = 0$. Also,
@@ -659,6 +592,76 @@
  Follows directly from
  \cref{lemma:coherence-nonstd_1,lemma:coherence-nonstd_2}
 \end{proof}
+
+\subsection{Proof of \cref{thm:second-countable}}
+
+%\begin{lemma}
+% \label{lemma:prob_1_filter}
+% Let $\phi$ be \summ.
+% Define
+% \begin{align*}
+%  \mathcal{F} = \{H \in \sigma(\Theta): 
+%  \exists n \in \mathbb{N} \text{ and } 
+%  H_1, H_2,\ldots, H_n \in \AA(\phix) 
+%  \text{ s.t. } \cap_{i=1}^n H_i \subseteq H \}.
+% \end{align*}
+% If $\P$ is a probability such that
+% $\P(H|x) = 1$ for every $H \in \AA(\phix)$, then
+% $\P(H|x) = 1$ for every $H \in \mathcal{F}$.
+%\end{lemma}
+
+%\begin{proof}
+% Let $H \in \mathcal{F}$.
+% By construction, there exist 
+% $H_1,\ldots,H_n \in \AA(\phix)$ such that
+% $\cap_{i=1}^n H_i \subseteq H$.
+% Let $\P$ be a probability such that
+% $\P(H|x) = 1$ for every $H \in \AA(\phix)$.
+% Since $\P$ is a probability,
+% $\P(\cap_{i=1}^n H_i|x) = 1$. Hence,
+% since $\cap_{i=1}^n H_i \subseteq H$, $\P(H|x) = 1$.
+%\end{proof}
+
+%\begin{lemma}
+% \label{lemma:prob_to_coherence}
+% If a \summ, $\phi$, is 
+% not $\aleph_0$-coherent, then
+% there exists no probability, $\P$, such that
+% $\P(H|x) = \phi(H|x)$, for every $H$ such that
+% $\phi(H|x) \in \{0,1\}$.
+%\end{lemma}
+
+%\begin{proof} 
+% Assume $\phi$ is not
+% $\aleph_0$-coherent. 
+% It follows from \cref{thm:coherence-filter} that
+% there exists $x \in \sX$ such that
+% either $\AA(\phix)$ is not a filter 
+% over $\sigma(\Theta)$ or
+% $\RR(\phix) \neq \{H^c: H \in \AA(\phix)\}$.
+ 
+% If $\AA(\phix)$ is not a filter, then
+% let $\mathcal{F}$ be such as in %\cref{lemma:prob_1_filter}.
+% Since $\mathcal{F}$ is a filter,
+% there exists $H_0 \in \mathcal{F}$ such that
+% $H_0 \notin \AA(\phix)$. Using 
+% \cref{lemma:prob_1_filter} obtain that there %exists 
+% no probability, $\P$, such that $\P(H|x) = 1$
+% for every $H \in \AA(\phi_x)$ and 
+% $\P(H_0|x) \neq 1$.
+
+% If $\RR(\phix) \neq \{H^c: H \in \AA(\phix)\}$, then
+% there exists $H_0 \in \sigma(\Theta)$ such that
+% $\phi(H_0|x) \in \{0,1\}$ and $\phi(H_0^c|x) \neq 1-\phi(H_0|x)$.
+% If $\phi(H_0|x) = \phi(H_0^c|x)$, then there exists 
+% no probability, $\P$, such that
+% $\P(H_0|x) = 1-\phi(H|x) = \P(H_0^c|x)$.
+% If $\phi(H_0^c|x) = \half$, then for every probability, $\P$,
+% such that $\P(H_0|x) = 1-\phi(H_0|x)$, obtain that
+% $\P(H_0^c|x) = 1-\P(H_0|x) \in \{0,1\}$.
+%\end{proof}
+
+\subsection{Proof of \cref{thm:min_u}}
 
 \begin{proof}[Proof of \cref{thm:min_u}]
  Let 
