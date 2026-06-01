@@ -19,7 +19,7 @@ alethic modalities. \red{Better describe what is meant by a summary and how it c
 Formally, a \probsumm\ is a function,
 $\phi(H|x)$, which assigns
 a modality to each hypothesis, $H$,
-after data $x$ is observed.
+after data $x \in \sX$ is observed.
 Here, the hypothesis, $H$, is 
 a subset of $\Theta$ and stands for
 the proposition that $\theta \in H$.
@@ -64,7 +64,7 @@ More formally:
  measurable subsets of $\Theta$.
  A thernary \probsumm\
  is a function
- $\phi: \sigma(\Theta) 
+ $\phi: \sigma(\Theta) \times \sX
  \rightarrow \{0, \half, 1\}$.
  When there is no ambiguity,
  $\phi$ is simply said to be
@@ -73,8 +73,7 @@ More formally:
 
 \begin{definition}
  A \summ\ $\phi$ is a 
- \stdsumm\ if,
- for every $\phi \in \{0,1\}$.
+ \stdsumm\ if $\phi$ takes values in $\{0,1\}$.
 \end{definition}
 
 Some additional properties are usually 
@@ -128,7 +127,7 @@ for \summs, as described below:
  $\kappa$-coherent if, 
  for every $x \in \sX$:
  \begin{enumerate}
-  \item $\phi$ is proper,
+  \item $\phi(\Theta|x) = 1$ (propriety),
   \item $\phi(H|x) = 1 - \phi(H^c|x)$,
   for every $H \in \sigma(\Theta)$ (invertibility),
   \item $\phi(H|x) \leq \phi(H'|x)$,
@@ -150,7 +149,7 @@ However, since the latter studies solely
 the case in which $\Theta$ is finite,
 only $\aleph_0$-consonance is discussed.
 
-This paper studies whether logically coherent are coherent representations of uncertainty. 
+This paper studies whether logically coherent \summ's are coherent representations of uncertainty. 
 \Cref{sec:coh_prob} shows that a \summ \ is
 logically coherent if and only if
 it admits a probability representation, 

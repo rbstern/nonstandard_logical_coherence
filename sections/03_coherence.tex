@@ -8,11 +8,10 @@ it is a coherent representation of uncertainty \citep{Finetti1931}, that is,
 it admits a probability representation.
 While \cref{sec:coherent_standard} 
 discusses the special case of 
-\stdsumms,
-\cref{sec:coherent_agnostic} discusses
+\stdsumms, \cref{sec:coherent_agnostic} discusses
 thernary \summs.
 
-\subsection{Standard tests}
+\subsection{\Stdsumms}
 \label{sec:coherent_standard}
 
 From a practical perspective,
@@ -47,13 +46,7 @@ divided into only two types:
 \begin{theorem}
  \label{thm:coherent_std_1}
  If $|\Theta|$ is not a measurable cardinal
- \citep{Ulam1930,Jech2013}, then
- $\phi$ is $\aleph_1$-coherent 
- if and only if
- $\phi$ is completely-coherent.
- In this case, 
- $\phi$ is a completely-additive 
- $\{0,1\}$-probability.
+ \citep{Ulam1930} and $\phi$ is $\aleph_1$-coherent, then $\phi$ is completely-coherent, that is, $\phi$ is a completely-additive $\{0,1\}$-probability.
 \end{theorem}
 
 In other words,
@@ -240,16 +233,7 @@ it is a region-based \summ.
 \red{Not sure how to connect the following examples to the text.}
 
 \begin{example}
- Let $\Theta \subset \Re^d$, and
- $\phix(H) = \I(\P(\theta \in H > k|x))$,
- for some $k \in (0,1)$.
- If for every $x$, $\theta|X=x$ is
- a continuous random variable, then
- $\phi$ is not smooth with respect to
- the usual topology over $\Re^d$.
- For instance, for every $x$,
- $\phi(\mathbb{Q}^d|x) = 0$ and
- $\phi(\Re^d|x) = 1$.
+ Let $\Theta \subset \Re^d$, and $\phix(H) = \I(\P(\theta \in H > k|x))$, for some $k \in (0,1)$. If for every $x$, $\P(\theta \leq t|X=x)$ is a continuous function of $t$, then $\phi$ is not smooth with respect to the usual topology over $\Re^d$. For instance, for every $x$, $\phi(\mathbb{Q}^d|x) = 0$ and $\phi(\Re^d|x) = 1$.
 \end{example}
 
 \begin{example}
