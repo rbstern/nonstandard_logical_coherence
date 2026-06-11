@@ -183,6 +183,12 @@ of a region-based \summ \ assigns
 probability $1$ to $R_x$ and
 an infinitesimal value to each element of $R_x$.
 
+\begin{lemma}
+ \label{thm:region-is-coherent}
+ If $\phi$ is a region-based test,
+ then $\phi$ is completely-coherent.
+\end{lemma}
+
 \begin{figure}
   \center
   \gfbstfig
@@ -191,6 +197,54 @@ an infinitesimal value to each element of $R_x$.
   a region-based \summ \ for $H$.}
   \label{fig::region}
 \end{figure}
+
+\begin{example}
+\label{sec:scheffe}
+Both Scheff\`{e}'s test for contrasts \citep{Scheffe1953} and the standard ANOVA $F$-test can be combined into a single region-based \summ. Consider the one-way analysis of variance layout in which, for groups $i \in \{1,\dots,k\}$,
+\begin{align*}
+ Y_{ij} &= \mu_i + \epsilon_{ij},
+ \quad j \in \{1, \dots, n_i\},
+ \quad \epsilon_{ij}
+ \overset{iid}{\sim} N(0,\sigma^2).
+\end{align*}
+The sample size is $N = \sum_{i} n_i$ and the unknown quantity is $\theta = (\mu,\sigma^2)$, with $\mu = (\mu_1,\dots,\mu_k) \in \Re^k$.
+Common frequentist estimators for these parameters are the group averages, $\hat{\mu}_i := \bar{Y}_i = n_i^{-1}\sum_{j} Y_{ij}$, and the pooled variance estimate, $\hat{\sigma}^2 = (N-k)^{-1} \sum_{i,j}(Y_{ij} - \bar{Y}_i)^2$.
+
+Let $\mathcal{C} = \{c \in \Re^k: \sum_{i} c_i = 0\}$ be the set of contrasts. A contrast $c \in \mathcal{C}$ specifies the hypothesis, $H_c = \{\mu \in \Re^k: c \cdot \mu = 0\}$, that the corresponding linear combination of the group means vanishes. Scheff\`{e}'s method provides a statistical hypothesis test for each $H_c$. Specifically, $H_c$ is rejected if
+\begin{align*}
+ \frac{\left|\sum_{i} c_i \bar{Y}_i\right|^2}{\hat{\sigma}^2 \sum_{i} c_i^2/n_i}
+ &> (k-1) F_{\alpha; \, k-1, \, N-k},
+\end{align*} 
+where $F_{\alpha;\,k-1,\,N-k}$ is the $1-\alpha$ quantile of the $F$ distribution with $k-1$ and $N-k$ degrees of freedom. 
+
+Also, the omnibus null hypothesis is that all group means coincide, that is,
+\begin{align*}
+ H_0 &= \{\mu \in \Re^k: \mu_1 = \dots = \mu_k\}
+     = \cap_{c \in \mathcal{C}} H_c.
+\end{align*}
+The standard ANOVA $F$-test rejects $H_0$ if
+\begin{align*}
+ \frac{\sum_i n_i
+(\bar{Y}_i - \bar{Y})^2}{\hat{\sigma}^2} &> (k-1) F_{\alpha; \, k-1, \, N-k}.
+\end{align*}
+
+It is possible to describe both Scheff\`{e}'s method and the $F$-test as a single \summ, $\phi$. For this purpose, let $R_x$ be the standard confidence region for $\mu$:
+\begin{align*}
+ R_x &= \left\{\mu \in \Re^k: \frac{\sum_{i} n_i \left[(\bar{Y}_i - \mu_i) - (\bar{Y} - \bar{\mu})\right]^2}{\hat{\sigma}^2}
+ \leq (k-1) F_{\alpha; \, k-1, \, N-k}\right\}.
+\end{align*}
+
+Consider the \summ, $\phi$, defined as follows:
+\begin{align*}
+ \phi(H|x) &=
+ \begin{cases}
+  1 & \text{, if } R_x \subseteq H, \\
+  0 & \text{, if } R_x \cap H = \emptyset, \\
+  \half & \text{, otherwise.}
+ \end{cases}
+\end{align*}
+$\phi$ describes both Scheff\`{e}'s method and the $F$-test. For every $c \in \mathcal{C}$, $\phi(H_c|x) = 0$ if and only if Scheff\`{e}'s method rejects $H_c$. Similarly, $\phi(H_0|x) = 0$ if and only if $H_0$ is rejected by the $F$-test. Furthermore, it follows from \cref{thm:region-is-coherent} that $\phi$ is completely-coherent. In particular, if there exists $H_c$ such that $\phi(H_c|x) = 0$, then $\phi(H_0|x) = 0$ \citep{Gabriel1969}.
+\end{example}
 
 Under weak conditions, a \summ \ is
 $\aleph_1$-coherent if and only if
