@@ -606,6 +606,16 @@
  Next, by construction, for every $U \in \mathcal{U}_R$, $U \not\subset A$ and, hence, $U \not\subset \text{Int}_\tau(A)$. Using this conclusion and the fact that $\mathcal{U}$ is a basis over $\tau$, obtain that $\text{Int}_\tau(A)$ can be written as a union of elements of $\mathcal{U}_A$. That is, Int$_\tau(A) \subset U^*$. Since $\text{Int}_\tau(A) \subset U^*$ and $U^* \in \sigma(\Theta)$, conclude that $U^* \in \AA(\phix)$.
 \end{proof}
 
+\begin{proof}[Proof of \cref{prop:second-countable}]
+ \begin{enumerate}
+  \item ($\phi$ is $\aleph_1$-coherent) Since $R_x \setminus \Theta = \emptyset$, $\phi(\Theta|x) = 1$. Also, by construction $\phi(H|x) = 1 - \phi(H^c|x)$. Next, if $H_1 \subseteq H_2$ and $\phi(H_1|x) = 1$, then $|R_x \setminus H_2| \leq |R_x \setminus H_1| \leq \aleph_0$ and $\phi(H_2|x) = 1$. Similarly, if $\phi(H_1|x) \neq 0$, then $|R_x \setminus H_1^c| > \aleph_0$. Hence, $|R_x \setminus H_2^c| > \aleph_0$ and $\phi(H_2|x) \neq 0$. Finally, if $\phi(H|x) = 1$, for every $H \in \mathcal{G}$, and $|\mathcal{G}| \leq \aleph_0$, then $|R_x \setminus \bigcap_{H \in \mathcal{G}}H| = |\bigcup_{H \in \mathcal{G}}(R_x \setminus H)| \leq \aleph_0$ and $\phi(\bigcap_{H \in \mathcal{G}}H|x) = 1$.
+
+  \item ($\phi$ is not a region-based \summ) Assume that there exists $R_x' \subseteq \Theta$ such that $\phi$ is based on $R_x'$. It follows that $\phi(R_x'|x) = 1$ and $|R_x \setminus R_x'| \leq \aleph_0$. Let $r \in R_x'$ and $R_x'' = R_x' \setminus \{r\}$. Since $|R_x \setminus R_x''| \leq \aleph_0$, $\phi(R_x''|x) = 1$. Hence, $\phi$ is not based on $R_x'$ and $\phi$ is not a region-based \summ.
+  
+  \item It follows from the previous items and from \cref{thm:second-countable} that there exists no second-countable topology, $\tau$, such that $\phi$ is smooth with respect to $\tau$. Indeed, assume that $\phi$ is smooth with respect to $\tau$. For every $D \subseteq \Theta$ such that $|D| \leq \aleph_0$, $|R_x \setminus D^c| \leq \aleph_0$, $\phi(D^c|x) = 1$, and $\phi(D|x) = 0$. Since $\phi$ is smooth with respect to $\tau$, $\phi(\text{Cl}_\tau(D)|x) = 0$. Hence, no countable set is dense in $R_x$ and $\tau$ cannot be second-countable. 
+ \end{enumerate}
+\end{proof}
+
 \subsection{Proof of \cref{thm:min_u}}
 
 \begin{proof}[Proof of \cref{thm:min_u}]

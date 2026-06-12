@@ -273,42 +273,13 @@ it is a region-based \summ.
  it is a region-based \summ.
 \end{theorem}
 
-\Cref{thm:second-countable} shows that,
-similarly to \stdsumms,
-$\aleph_0$-coherent 
-\summs \ are also 
-divided into two types.
-If a \summ \ is not $\aleph_1$-coherent, then
-it admits a probability representation and
-is not a region-based \summ.
-If the \summ \ is $\aleph_1$-coherent, then
-it is a region-based \summ.
+The smoothness hypothesis in \cref{thm:second-countable} cannot be dropped. The following proposition exhibits an $\aleph_1$-coherent \summ \ built by treating sets that differ from $R_x$ by countably many points as equivalent. This \summ \ is not region-based, and the smoothness failure cannot be repaired by any second-countable topology.
 
-\red{Not sure how to connect the following examples to the text.}
+\begin{proposition}[Sharpness of \cref{thm:second-countable}]
+ \label{prop:second-countable}
+ Let $|\Theta| \geq \aleph_1$ and $R_x \subseteq \Theta$ with $|R_x| \geq \aleph_1$. Define $\phi$ by $\phi(H|x) = 1$ if and only if $|R_x \setminus H| \leq \aleph_0$ and $\phi(H|x) = 0$ if and only if $\phi(H^c|x) = 1$. Then $\phi$ is $\aleph_1$-coherent, not region-based, and not smooth with respect to any second-countable topology on $\Theta$.
+\end{proposition}
 
-\begin{example}
- Let $\Theta \subset \Re^d$, and $\phix(H) = \I(\P(\theta \in H > k|x))$, for some $k \in (0,1)$. If for every $x$, $\P(\theta \leq t|X=x)$ is a continuous function of $t$, then $\phi$ is not smooth with respect to the usual topology over $\Re^d$. For instance, for every $x$, $\phi(\mathbb{Q}^d|x) = 0$ and $\phi(\Re^d|x) = 1$.
-\end{example}
-
-\begin{example}
- Let $\Theta \subset \Re^d$ and
- $\mu$ be the Lebesgue measure over $\Theta$.
- The log-likelihood of $\theta \in \Theta$
- based on $x \in \sX$ is defined as
-  $l_{x}(\theta)
- := \log\left(\frac{d\P_{\theta}(x)}{d\mu}\right)$.
- Similarly, the log-likelihood statistic for
- an hypothesis, $H$, is
- $\Lambda_{H}(x) :=
- -2\left(\sup_{\theta \in H}l_x(\theta) 
- - \sup_{\theta \in \Theta}l_x(\theta)\right)$.
- The standard log-likehood \summ \ is defined as
- $\phi(H|x) = \I(\Lambda_{H}(x) > k_{H})$,
- where $k_H$ is chosen so that
- $\sup_{\theta \in H} \E_{\theta \in H}[\phi(H)] = \alpha$.
- If the log-likelihood is continuous with respect to $\tau$,
- then $\phi$ is smooth 
- with respect to $\tau$.
-\end{example}
+\Cref{thm:coherence-nonstd,thm:second-countable} provide a classification of $\aleph_0$-coherent \summs. If a \summ \ is not $\aleph_1$-coherent, then it admits a probability representation and is not a region-based \summ. Under the hypotheses of \cref{thm:second-countable}, if the \summ \ is $\aleph_1$-coherent, then it is a region-based \summ. As \cref{prop:second-countable} shows, dropping smoothness allows a third type: $\aleph_1$-coherent \summs \ that are not region-based.
 
 
