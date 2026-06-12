@@ -188,8 +188,13 @@
  $H \in \FF$ if and only if $\theta \in H$.
 \end{definition}
 
-\begin{proof}[Proof of \cref{thm:coherent_std_1}] 
+\begin{proof}[Proof of \cref{thm:coherent_std_1}]
   Let $\phi$ be $\aleph_1$-coherent. It follows from \cref{cor:standard-ultrafilter} that $\AA(\phix)$ is a $\aleph_1$-complete ultrafilter over $\sigma(\Theta)$ and $\RR(\phix) = \{H^c: H \in \AA(\phix)\}$. Since $|\Theta|$ is not a measurable cardinal, $\AA(\phix)$ is a principal ultrafilter over $\sigma(\Theta)$. Since a principal ultrafilter is $|\mathcal{P}(\Theta)|$-complete, it follows from \cref{cor:standard-ultrafilter} that $\phi$ is completely-coherent.
+\end{proof}
+
+\begin{proof}[Proof of \cref{prop:coherent_std_1}]
+ Since $|\Theta|$ is a measurable cardinal \citep{Ulam1930}, there exists a non-principal $\aleph_1$-complete ultrafilter, $\mathcal{F}$, over $\sigma(\Theta)$. Define $\phi$ by $\AA(\phix) = \mathcal{F}$ and $\RR(\phix) = \{H^c: H \in \mathcal{F}\}$. By \cref{cor:standard-ultrafilter}, $\phi$ is $\aleph_1$-coherent. However, $\phi$ is not completely-coherent. Indeed, since $\mathcal{F}$ is non-principal, for every $\theta \in \Theta$, $\Theta \setminus \{\theta\} \in \mathcal{F}$. However,
+ $\bigcap_{\theta \in \Theta} (\Theta \setminus \{\theta\}) = \emptyset \notin \mathcal{F}$. Hence, $\phi(\Theta \setminus \{\theta\}|x) = 1$ for every $\theta \in \Theta$, $\phi(\cap_{\theta \in \Theta} (\Theta \setminus \{\theta\})|x) = 0$ and $\phi$ is not completely-coherent.
 \end{proof}
 
 \subsection{Proof of \cref{{thm:coherence-nonstd}}}
